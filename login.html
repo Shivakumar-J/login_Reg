@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Login</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .company-logo {
+      position: absolute;
+      top: 50px;
+      right: 220px;
+      width: 100px; 
+      height: 100px;
+    }
+  </style>
+</head>
+<body style="background-color:lightgray";>
+  <div class="container mt-5">
+    <h2 style="color: teal">User Login</h2>
+    <img src="image.png" alt="Company Logo" class="company-logo">
+    <form method="POST" action="/login" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="email" style="color: blue">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+        <div class="invalid-feedback">
+          Please enter a valid email address.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password" style="color: blue">Password</label>
+        <input type="password" class="form-control" id="password" name="password" minlength="6" required>
+        <div class="invalid-feedback">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    // Enable client-side form validation
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+</body>
+</html>
